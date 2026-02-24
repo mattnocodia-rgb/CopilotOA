@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-app-bg: var(--app-bg);
+  --color-app-text: var(--app-text);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-primary: var(--primary-color);
+}
+
+:root {
+  --app-bg: #f8fafc; /* slate-50 */
+  --app-text: #0f172a; /* slate-900 */
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0; /* slate-200 */
+  --primary-color: #2563eb; /* Default blue-600 */
+}
+
+.dark {
+  --app-bg: #0f172a; /* slate-900 */
+  --app-text: #f1f5f9; /* slate-100 */
+  --card-bg: #1e293b; /* slate-800 */
+  --card-border: #334155; /* slate-700 */
+}
+
+body {
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Global overrides to make existing tailwind classes reactive to theme */
+.dark .bg-slate-50, 
+.dark .bg-slate-100/50 {
+  background-color: var(--app-bg) !important;
+}
+
+.dark .bg-white {
+  background-color: var(--card-bg) !important;
+}
+
+.dark .text-slate-900,
+.dark .text-slate-800,
+.dark .text-slate-700 {
+  color: var(--app-text) !important;
+}
+
+.dark .text-slate-600,
+.dark .text-slate-500,
+.dark .text-slate-400 {
+  color: #94a3b8 !important; /* slate-400 */
+}
+
+.dark .border-slate-200,
+.dark .border-slate-100 {
+  border-color: var(--card-border) !important;
+}
+
+.dark .hover\:bg-slate-50:hover {
+  background-color: #1e293b !important;
+}
+
+/* Map blue-600 classes to primary color globally */
+.bg-blue-600 {
+  background-color: var(--primary-color) !important;
+}
+
+.text-blue-600 {
+  color: var(--primary-color) !important;
+}
+
+.border-blue-600 {
+  border-color: var(--primary-color) !important;
+}
+
+.shadow-blue-100 {
+  --tw-shadow-color: var(--primary-color);
+  --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+}
+
+.dark .bg-blue-50 {
+  background-color: rgba(30, 58, 138, 0.3) !important;
+  color: #93c5fd !important;
+}
